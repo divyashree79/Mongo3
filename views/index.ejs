@@ -7,31 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    ```<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <h3>All Chats!</h3>
-     <form method="get" action="/chats/new">
+    <form method="get" action="/chats/new">
         <button>New Chat</button>
-     </form>
-        <br>
+    </form>
+    <br>
     <% for(chat of chats){ %>
-        <div class="chat"> 
-            <p>From: <i> <%= chat.from %></i></p>
-            <div class="msg">
-                <p><%= chat.msg %></p> 
-                <form method="get" action="/chats/<%= chat._id %>/edit">
-                    <button>Edit</button>
-                </form>
-                <br>
-                <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">
-                    
-                    <button>Delete</button>
-                </form>
-            </div>
-            <p>Received By: <i> <%= chat.to %></i></p>
-        <hr>
-
+    <div class="chat"> 
+        <p>From: <i><%= chat.from %></i></p>
+        <div class="msg">
+            <p><%= chat.msg %></p> 
+            <p>Updated At: <%= chat.updatedAt%></p>
+            <form method="get" action="/chats/<%= chat._id %>/edit">
+                <button class="edit">Edit</button>
+            </form>
+            <br>
+            <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">
+                <button class="delete">Delete</button>
+            </form>
         </div>
-        <br><br>
+        <p>Received By: <i><%= chat.to %></i></p>
+        <hr>
+        <p>Created Time:<%=chat.created_at.toString().split(" ")[4] %></p>
+        <p>Created Date:<%=chat.created_at.toString().split(" ").slice(0,4).join("-") %></p>
+
+    </div>
+    <br><br>
     <% } %>
+</body>
+</html>
+```
 </body>
 </html>
 

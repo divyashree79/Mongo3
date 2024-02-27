@@ -14,3 +14,13 @@ body{
     border-radius: 16px;
 
 }
+.edit{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 20px;
+}
+.delete{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 20px;
+}
